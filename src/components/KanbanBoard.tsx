@@ -11,12 +11,12 @@ import {
   useSensors,
 } from "@dnd-kit/core";
 import { SortableContext, arrayMove } from "@dnd-kit/sortable";
-import PlusIcon from "../icons/PlusIcon";
+import { PlusIcon } from "../icons/PlusIcon";
 import { Column, Id, Task } from "../types";
 import { ColumnContainer } from "./ColumnContainer";
 import { TaskCard } from "./TaskCard";
 
-function KanbanBoard() {
+export function KanbanBoard() {
   const [columns, setColumns] = useState<Column[]>([]);
   const [tasks, setTasks] = useState<Task[]>([]);
   const [activeColumn, setActiveColumn] = useState<Column | null>(null);
@@ -224,5 +224,3 @@ function KanbanBoard() {
     </div>
   );
 }
-
-export default KanbanBoard;
