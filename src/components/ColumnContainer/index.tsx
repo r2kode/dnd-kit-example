@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
 import { SortableContext, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { Column, Id, Task } from "../types";
-import { TrashIcon } from "../icons/TrashIcon";
-import { PlusIcon } from "../icons/PlusIcon";
-import { TaskCard } from "./TaskCard";
+import { Column, Id, Task } from "../../types";
+import { TrashIcon } from "../../icons/TrashIcon";
+import { PlusIcon } from "../../icons/PlusIcon";
+import { TaskCard } from "../TaskCard";
 
 type ColumnContainerProps = {
   column: Column;

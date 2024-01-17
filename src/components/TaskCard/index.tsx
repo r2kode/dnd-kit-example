@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { TrashIcon } from "../icons/TrashIcon";
-import { Id, Task } from "../types";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { TrashIcon } from "../../icons/TrashIcon";
+import { Id, Task } from "../../types";
+import { useTaskCard } from "./hooks/useTaskCard";
 
 type TaskCardProps = {
   task: Task;
@@ -10,8 +10,8 @@ type TaskCardProps = {
   updateTask: (id: Id, content: string) => void;
 };
 export function TaskCard({ task, deleteTask, updateTask }: TaskCardProps) {
-  const [isMouseOver, setIsMouseOver] = useState(false);
-  const [editMode, setEditMode] = useState(false);
+  const { isMouseOver, editMode, setIsMouseOver, toggleEditMode } =
+    useTaskCard();
   const {
     setNodeRef,
     attributes,
@@ -31,11 +31,6 @@ export function TaskCard({ task, deleteTask, updateTask }: TaskCardProps) {
   const style = {
     transition,
     transform: CSS.Transform.toString(transform),
-  };
-
-  const toggleEditMode = () => {
-    setEditMode((prev) => !prev);
-    setIsMouseOver(false);
   };
 
   if (isDragging) {
