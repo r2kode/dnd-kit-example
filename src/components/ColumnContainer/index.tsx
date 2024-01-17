@@ -47,17 +47,13 @@ export function ColumnContainer({
     transform: CSS.Transform.toString(transform),
   };
 
-  if (isDragging) {
-    return (
-      <div
-        className="bg-columnBackgroundColor w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col opacity-40 border-2 border-rose-500"
-        ref={setNodeRef}
-        style={style}
-      ></div>
-    );
-  }
-
-  return (
+  return isDragging ? (
+    <div
+      className="bg-columnBackgroundColor w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col opacity-40 border-2 border-rose-500"
+      ref={setNodeRef}
+      style={style}
+    ></div>
+  ) : (
     <div
       className="bg-columnBackgroundColor w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col"
       ref={setNodeRef}
